@@ -52,6 +52,7 @@ export default function Home() {
             <a href="#functies" className="hover:text-forest">Functies</a>
             <a href="#voor-wie" className="hover:text-forest">Voor wie</a>
             <a href="#contact" className="hover:text-forest">Contact</a>
+            <a href="https://app.mijnteamhub.nl" className="hover:text-forest">Inloggen</a>
           </nav>
           <a
             href="#contact"
