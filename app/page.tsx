@@ -1,69 +1,209 @@
-import Image from "next/image";
+const FUNCTIES = [
+  {
+    naam: "Presentie & agenda",
+    beschrijving:
+      "Trainingen, wedstrijden en teamgesprekken staan in één agenda per team. Spelers melden zich zelf af in de app, dus de trainer hoeft niet meer na te bellen wie er komt.",
+  },
+  {
+    naam: "Wedstrijdopstelling",
+    beschrijving:
+      "De basisopstelling wordt voorgesteld op basis van wie er die week daadwerkelijk getraind heeft, met de cijfers over het seizoen als tweede maatstaf. De trainer beslist, maar begint niet meer bij een leeg vel.",
+  },
+  {
+    naam: "Corvee",
+    beschrijving:
+      "Loopt automatisch mee met de agenda, op alfabet. Mist iemand een beurt, dan schuift die door naar de week erna, zonder dat een vrijwilliger dat handmatig hoeft bij te houden.",
+  },
+  {
+    naam: "Statistieken per seizoen",
+    beschrijving:
+      "Opkomst, op tijd komen, wedstrijdcijfers en doelpunten per speler, per seizoen. Blijft bewaard zolang de speler bij de club speelt, ook bij een overstap naar een ander team.",
+  },
+];
+
+const DOELGROEPEN = [
+  {
+    naam: "Trainers",
+    beschrijving: "Eén overzicht per team in plaats van een appgroep, een presentielijst en een los briefje.",
+  },
+  {
+    naam: "Technisch coördinatoren",
+    beschrijving: "Zicht op alle teams tegelijk, zonder elke trainer apart te hoeven bellen voor een update.",
+  },
+  {
+    naam: "Hoofden jeugdopleiding",
+    beschrijving: "Ontwikkeling van elke speler over meerdere seizoenen, onderbouwd bij doorstroming, selectie of een vraag van een scout.",
+  },
+  {
+    naam: "Spelers",
+    beschrijving: "Eigen agenda en eigen cijfers, zodat ze precies zien waar ze aan werken.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+    <>
+      <header className="sticky top-0 z-10 bg-cream/95 backdrop-blur border-b border-ink/10">
+        <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
+          <span className="font-display font-extrabold text-2xl tracking-tight uppercase">
+            TeamHub
+          </span>
+          <nav className="hidden sm:flex items-center gap-8 text-sm font-medium">
+            <a href="#functies" className="hover:text-forest">Functies</a>
+            <a href="#voor-wie" className="hover:text-forest">Voor wie</a>
+            <a href="#contact" className="hover:text-forest">Contact</a>
+          </nav>
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
+            className="rounded-full bg-forest text-cream text-sm font-semibold px-5 py-2.5 hover:bg-forest-2 transition-colors"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+            Neem contact op
           </a>
         </div>
+      </header>
+
+      <main>
+        {/* Hero */}
+        <section className="bg-forest text-cream min-h-[calc(100vh-4rem)] flex items-center">
+          <div className="mx-auto max-w-5xl px-6 py-16 text-center flex flex-col items-center">
+            <h1 className="font-display font-extrabold uppercase whitespace-nowrap text-[clamp(17px,5.3vw,52px)] leading-[0.95]">
+              Eén systeem voor de hele jeugdopleiding
+            </h1>
+            <p className="mt-8 text-lg sm:text-xl leading-relaxed max-w-2xl text-cream/85">
+              TeamHub brengt presentie, agenda, corvee en wedstrijdopstelling
+              samen voor elk team in de club, en bouwt dat op tot een dossier
+              per speler dat jaren meegaat. Zodat trainers, coördinatoren en
+              het hoofd jeugdopleiding op dezelfde informatie werken.
+            </p>
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+              <a
+                href="#contact"
+                className="rounded-full bg-gold text-ink font-semibold px-7 py-3.5 hover:bg-gold-dark hover:text-cream transition-colors"
+              >
+                Neem contact op
+              </a>
+              <a
+                href="#functies"
+                className="rounded-full border border-cream/30 text-cream font-semibold px-7 py-3.5 hover:bg-cream/10 transition-colors"
+              >
+                Bekijk wat het doet
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Waarom */}
+        <section className="bg-cream min-h-[calc(100vh-4rem)] flex items-center">
+          <div className="mx-auto max-w-6xl px-6 py-16 grid md:grid-cols-[1fr_1.3fr] gap-12 items-start">
+            <h2 className="font-display font-extrabold uppercase text-4xl sm:text-5xl leading-[0.95] text-balance">
+              Wat een groeiende opleiding meestal tegenkomt
+            </h2>
+            <div className="space-y-5 text-lg leading-relaxed text-ink/80">
+              <p>
+                Presentie in een appgroep, corvee op een whiteboard bij de
+                kantine, de opstelling in het hoofd van de trainer. Het werkt,
+                tot die trainer er na een paar jaar mee stopt en alles wat hij
+                over de spelers wist met hem meeloopt. Of tot een ouder op
+                zaterdagochtend vraagt waarom zijn zoon op de bank zit, en er
+                geen onderbouwing is buiten een gevoel.
+              </p>
+              <p>
+                Voor één team is dat nog te overzien. Voor een opleiding met
+                tien of twintig jeugdteams, elk met een vrijwillige trainer en
+                een eigen manier van administreren, gedeelde velden op de
+                drukke trainingsavonden en een technisch coördinator die alles
+                bij elkaar moet houden, wordt het al snel de reden dat niemand
+                meer het hele plaatje ziet, laat staan de club daarbuiten.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Voor wie */}
+        <section id="voor-wie" className="bg-cream-2 border-y border-ink/10 min-h-[calc(100vh-4rem)] flex items-center">
+          <div className="mx-auto max-w-6xl px-6 py-16 w-full">
+            <h2 className="font-display font-extrabold uppercase text-4xl sm:text-5xl leading-[0.95] mb-14 max-w-2xl text-balance">
+              Voor iedereen om het team heen
+            </h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {DOELGROEPEN.map((d) => (
+                <div key={d.naam} className="bg-cream rounded-2xl border border-ink/10 p-6">
+                  <h3 className="font-display font-bold uppercase text-xl mb-2">{d.naam}</h3>
+                  <p className="text-ink/75 leading-relaxed">{d.beschrijving}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Functies */}
+        <section id="functies" className="bg-forest text-cream min-h-[calc(100vh-4rem)] flex items-center">
+          <div className="mx-auto max-w-6xl px-6 py-16 w-full">
+            <h2 className="font-display font-extrabold uppercase text-4xl sm:text-5xl leading-[0.95] mb-14 max-w-2xl text-balance">
+              Wat het precies doet
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-px bg-cream/15 rounded-2xl overflow-hidden">
+              {FUNCTIES.map((f) => (
+                <div key={f.naam} className="bg-forest-2 p-8">
+                  <h3 className="font-display font-bold uppercase text-2xl mb-3">{f.naam}</h3>
+                  <p className="text-cream/75 leading-relaxed">{f.beschrijving}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Lange termijn */}
+        <section className="bg-cream min-h-[calc(100vh-4rem)] flex items-center">
+          <div className="mx-auto max-w-3xl px-6 py-16">
+            <h2 className="font-display font-extrabold uppercase text-3xl sm:text-4xl leading-[0.95] mb-6 text-balance">
+              Wat een opleiding onderscheidt die verder kijkt dan dit seizoen
+            </h2>
+            <div className="space-y-5 text-lg leading-relaxed text-ink/80">
+              <p>
+                Een speler die tussen zijn achtste en dertiende instroomt,
+                laat een aantal seizoenen later een geschiedenis zien: opkomst,
+                gedrag, wedstrijdcijfers, ontwikkeling per positie. Die data
+                bouwt zich nu al op, seizoen na seizoen, ook als de speler van
+                team of trainer wisselt.
+              </p>
+              <p>
+                Zeker in een regio waar scouts en RTC&apos;s naar spelers
+                kijken die zich over een langere periode bewijzen, en niet naar
+                één goede wedstrijd, is dat geen overbodige luxe. Een dossier
+                dat jaren teruggaat geeft een opleiding, en de speler zelf,
+                iets om op terug te vallen op het moment dat het ertoe doet.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section id="contact" className="bg-forest text-cream min-h-[calc(100vh-4rem)] flex items-center">
+          <div className="mx-auto max-w-4xl px-6 py-16 text-center w-full">
+            <h2 className="font-display font-extrabold uppercase text-4xl sm:text-5xl leading-[0.95] text-balance">
+              Praat met ons
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-cream/80 max-w-xl mx-auto">
+              Benieuwd hoe dit past bij de opleiding van uw club? Stuur een
+              e-mail, dan denken we mee.
+            </p>
+            <a
+              href="mailto:info@teamhub.nl"
+              className="mt-10 inline-block rounded-full bg-gold text-ink font-semibold px-8 py-4 hover:bg-gold-dark hover:text-cream transition-colors"
+            >
+              info@teamhub.nl
+            </a>
+          </div>
+        </section>
       </main>
-    </div>
+
+      <footer className="bg-ink text-cream/60">
+        <div className="mx-auto max-w-6xl px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+          <span className="font-display font-bold uppercase tracking-wide">TeamHub</span>
+          <span>info@teamhub.nl</span>
+        </div>
+      </footer>
+    </>
   );
 }
