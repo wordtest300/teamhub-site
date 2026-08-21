@@ -52,14 +52,21 @@ export default function Home() {
             <a href="#functies" className="hover:text-forest">Functies</a>
             <a href="#voor-wie" className="hover:text-forest">Voor wie</a>
             <a href="#contact" className="hover:text-forest">Contact</a>
-            <a href="https://app.mijnteamhub.nl" className="hover:text-forest">Inloggen</a>
           </nav>
-          <a
-            href="#contact"
-            className="rounded-full bg-forest text-cream text-sm font-semibold px-5 py-2.5 hover:bg-forest-2 transition-colors"
-          >
-            Neem contact op
-          </a>
+          <div className="flex items-center gap-4 sm:gap-5">
+            <a
+              href="https://app.mijnteamhub.nl"
+              className="text-sm font-semibold hover:text-forest"
+            >
+              Inloggen
+            </a>
+            <a
+              href="#contact"
+              className="rounded-full bg-forest text-cream text-sm font-semibold px-5 py-2.5 hover:bg-forest-2 transition-colors"
+            >
+              Neem contact op
+            </a>
+          </div>
         </div>
       </header>
 
