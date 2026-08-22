@@ -198,10 +198,10 @@ export default function Home() {
               e-mail, dan denken we mee.
             </p>
             <a
-              href="mailto:info@teamhub.nl"
+              href="mailto:info@mijnteamhub.nl"
               className="mt-10 inline-block rounded-full bg-gold text-ink font-semibold px-8 py-4 hover:bg-gold-dark hover:text-cream transition-colors"
             >
-              info@teamhub.nl
+              info@mijnteamhub.nl
             </a>
           </div>
         </section>
@@ -210,7 +210,7 @@ export default function Home() {
       <footer className="bg-ink text-cream/60">
         <div className="mx-auto max-w-6xl px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
           <span className="font-display font-bold uppercase tracking-wide">TeamHub</span>
-          <span>info@teamhub.nl</span>
+          <span>info@mijnteamhub.nl</span>
         </div>
       </footer>
     </>
