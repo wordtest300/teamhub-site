@@ -109,11 +109,12 @@ export default function Home() {
             <div className="space-y-5 text-lg leading-relaxed text-ink/80">
               <p>
                 Presentie in een appgroep, corvee op een whiteboard bij de
-                kantine, de opstelling in het hoofd van de trainer. Het werkt,
-                tot die trainer er na een paar jaar mee stopt en alles wat hij
-                over de spelers wist met hem meeloopt. Of tot een ouder op
-                zaterdagochtend vraagt waarom zijn zoon op de bank zit, en er
-                geen onderbouwing is buiten een gevoel.
+                kantine, statistieken in een Excelsheet, de opstelling in het
+                hoofd van de trainer. Het werkt, tot die trainer er na een
+                paar jaar mee stopt en alles wat hij over de spelers wist met
+                hem meeloopt. Of tot een ouder op zaterdagochtend vraagt
+                waarom zijn zoon op de bank zit, en er geen onderbouwing is
+                buiten een gevoel.
               </p>
               <p>
                 Voor één team is dat nog te overzien. Voor een opleiding met
