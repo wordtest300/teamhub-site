@@ -75,7 +75,7 @@ export default function Home() {
         <section className="bg-forest text-cream min-h-[calc(100vh-4rem)] flex items-center">
           <div className="mx-auto max-w-5xl px-6 py-16 text-center flex flex-col items-center">
             <h1 className="font-display font-extrabold uppercase whitespace-nowrap text-[clamp(17px,5.3vw,52px)] leading-[0.95]">
-              Eén systeem voor de hele jeugdopleiding
+              ÉÉN systeem voor de hele jeugdopleiding
             </h1>
             <p className="mt-8 text-lg sm:text-xl leading-relaxed max-w-2xl text-cream/85">
               TeamHub brengt presentie, agenda, corvee en wedstrijdopstelling
