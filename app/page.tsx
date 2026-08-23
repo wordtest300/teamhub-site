@@ -80,10 +80,12 @@ export default function Home() {
               ÉÉN systeem voor de hele jeugdopleiding
             </h1>
             <p className="mt-8 text-lg sm:text-xl leading-relaxed max-w-2xl text-cream/85">
-              Mijn TeamHub brengt presentie, agenda, corvee en wedstrijdopstelling
-              samen voor elk team in de club, en bouwt dat op tot een dossier
-              per speler dat jaren meegaat. Zodat trainers, coördinatoren en
-              het hoofd jeugdopleiding op dezelfde informatie werken.
+              Mijn TeamHub brengt zoveel administratieve zaken als presentie,
+              agenda en corvee als technische zaken als statistieken en
+              spelersvorm samen voor elk team in de club, en bouwt dat op tot
+              een dossier per speler dat jaren meegaat. Zodat trainers,
+              coördinatoren en het hoofd jeugdopleiding op dezelfde
+              informatie werken.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <a
