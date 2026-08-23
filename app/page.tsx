@@ -85,12 +85,11 @@ export default function Home() {
               ÉÉN systeem voor de hele jeugdopleiding
             </h1>
             <p className="mt-8 text-lg sm:text-xl leading-relaxed max-w-2xl text-cream/85">
-              Mijn TeamHub brengt zoveel administratieve zaken als presentie,
-              agenda en corvee als technische zaken als statistieken en
-              spelersvorm samen voor elk team in de club, en bouwt dat op tot
-              een dossier per speler dat jaren meegaat. Zodat trainers,
-              coördinatoren en het hoofd jeugdopleiding op dezelfde
-              informatie werken.
+              Mijn TeamHub brengt zowel administratieve zaken (presentie,
+              agenda en corvee) als technische zaken (statistieken en
+              spelersvorm) samen. Zo ontstaat een dossier per speler dat
+              jaren meegaat, en werken trainers, coördinatoren en het hoofd
+              jeugdopleiding op dezelfde informatie.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <a
@@ -117,21 +116,21 @@ export default function Home() {
             </h2>
             <div className="space-y-5 text-lg leading-relaxed text-ink/80">
               <p>
-                Presentie in een appgroep, corvee op een whiteboard bij de
-                kantine, statistieken in een Excelsheet, de opstelling in het
-                hoofd van de trainer. Het werkt, tot die trainer er na een
-                paar jaar mee stopt en alles wat hij over de spelers wist met
-                hem meeloopt. Of tot een ouder op zaterdagochtend vraagt
-                waarom zijn zoon op de bank zit, en er geen onderbouwing is
-                buiten een gevoel.
+                Aanwezigheid in een eigen notitie, corvee in een groepsapp,
+                statistieken in excelsheets, de opstelling in het hoofd van de
+                trainer. Het werkt, tot die trainer er na een paar jaar mee
+                stopt en alles wat hij over de spelers wist met hem meeloopt.
+                Of tot een ouder op zaterdagochtend vraagt waarom zijn zoon op
+                de bank zit, en er geen onderbouwing is buiten een gevoel.
               </p>
               <p>
                 Voor één team is dat nog te overzien. Voor een opleiding met
                 tien of twintig jeugdteams, elk met een vrijwillige trainer en
-                een eigen manier van administreren, gedeelde velden op de
-                drukke trainingsavonden en een technisch coördinator die alles
-                bij elkaar moet houden, wordt het al snel de reden dat niemand
-                meer het hele plaatje ziet, laat staan de club daarbuiten.
+                een eigen manier van administreren, wordt het al snel de
+                reden dat niemand meer het hele plaatje ziet, laat staan de
+                club daarbuiten. Zeker met gedeelde velden op de drukke
+                trainingsavonden en een technisch coördinator die alles bij
+                elkaar moet houden.
               </p>
             </div>
           </div>
