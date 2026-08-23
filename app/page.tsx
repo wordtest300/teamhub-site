@@ -1,3 +1,5 @@
+import ContactForm from "@/components/ContactForm";
+
 const FUNCTIES = [
   {
     naam: "Presentie & agenda",
@@ -195,14 +197,9 @@ export default function Home() {
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-cream/80 max-w-xl mx-auto">
               Benieuwd hoe dit past bij de opleiding van uw club? Stuur een
-              e-mail, dan denken we mee.
+              bericht, dan denken we mee.
             </p>
-            <a
-              href="mailto:info@mijnteamhub.nl"
-              className="mt-10 inline-block rounded-full bg-gold text-ink font-semibold px-8 py-4 hover:bg-gold-dark hover:text-cream transition-colors"
-            >
-              info@mijnteamhub.nl
-            </a>
+            <ContactForm />
           </div>
         </section>
       </main>
