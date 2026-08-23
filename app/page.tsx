@@ -4,22 +4,27 @@ const FUNCTIES = [
   {
     naam: "Presentie & agenda",
     beschrijving:
-      "Trainingen, wedstrijden en teamgesprekken staan in één agenda per team. Spelers melden zich zelf af in de app, dus de trainer hoeft niet meer na te bellen wie er komt.",
+      "Eén gekoppelde agenda voor trainingen, wedstrijden, analyses en POP-gesprekken. Spelers melden zich na overleg met de trainer zelf af in de app, zodat het meteen gelogd staat, en te laat komen leggen trainers vast met letterlijk één druk op de knop. POP-gesprekken verschijnen ook automatisch in de agenda van de speler zelf.",
   },
   {
-    naam: "Wedstrijdopstelling",
+    naam: "Beoordeling",
     beschrijving:
-      "De basisopstelling wordt voorgesteld op basis van wie er die week daadwerkelijk getraind heeft, met de cijfers over het seizoen als tweede maatstaf. De trainer beslist, maar begint niet meer bij een leeg vel.",
+      "Elke speler krijgt een eindcijfer opgebouwd uit opkomst, op tijd komen en prestatie (spel, inzet, gedrag), en dat cijfer verandert live, direct na elke training of wedstrijd. Geen jaarlijkse beoordeling achteraf, maar een actueel beeld dat altijd klopt.",
+  },
+  {
+    naam: "Live en wedstrijdopstelling",
+    beschrijving:
+      "De basisopstelling komt niet uit een gevoel, maar uit een wegingsmodel: wie er deze week écht heeft getraind weegt het zwaarst, de vorm over het seizoen erna. De trainer beslist nog steeds, maar begint niet meer bij een leeg vel. Daarnaast is er een aparte live opstelling, puur gebaseerd op prestatie en voetballend niveau.",
   },
   {
     naam: "Corvee",
     beschrijving:
-      "Loopt automatisch mee met de agenda, op alfabet. Mist iemand een beurt, dan schuift die door naar de week erna, zonder dat een vrijwilliger dat handmatig hoeft bij te houden.",
+      "Een geautomatiseerd corveerooster in een vaste, logische volgorde. Mist iemand een beurt, dan schuift het systeem die automatisch door, zonder dat een vrijwilliger dat handmatig hoeft bij te houden.",
   },
   {
-    naam: "Statistieken per seizoen",
+    naam: "Statistieken",
     beschrijving:
-      "Opkomst, op tijd komen, wedstrijdcijfers en doelpunten per speler, per seizoen. Blijft bewaard zolang de speler bij de club speelt, ook bij een overstap naar een ander team.",
+      "Opkomst, op tijd komen, wedstrijdcijfers en persoonlijke statistieken zoals goals, assists en tegendoelpunten, per seizoen bijgehouden. Dat blijft bewaard zolang de speler bij de club speelt, ook bij een overstap naar een ander team.",
   },
 ];
 
@@ -156,10 +161,15 @@ export default function Home() {
               Wat het precies doet
             </h2>
             <div className="grid sm:grid-cols-2 gap-px bg-cream/15 rounded-2xl overflow-hidden">
-              {FUNCTIES.map((f) => (
-                <div key={f.naam} className="bg-forest-2 p-8">
+              {FUNCTIES.map((f, i) => (
+                <div
+                  key={f.naam}
+                  className={`bg-forest-2 p-8 ${i === FUNCTIES.length - 1 ? "sm:col-span-2" : ""}`}
+                >
                   <h3 className="font-display font-bold uppercase text-2xl mb-3">{f.naam}</h3>
-                  <p className="text-cream/75 leading-relaxed">{f.beschrijving}</p>
+                  <p className={`text-cream/75 leading-relaxed ${i === FUNCTIES.length - 1 ? "max-w-2xl" : ""}`}>
+                    {f.beschrijving}
+                  </p>
                 </div>
               ))}
             </div>
