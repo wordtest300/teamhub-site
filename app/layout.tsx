@@ -15,9 +15,9 @@ const archivo = Archivo({
 });
 
 export const metadata: Metadata = {
-  title: "TeamHub — Software voor jeugdopleidingen",
+  title: "Mijn TeamHub — Software voor jeugdopleidingen",
   description:
-    "TeamHub houdt presentie, agenda, corvee, opstelling en spelersontwikkeling jarenlang bij voor jeugdopleidingen die serieus willen presteren.",
+    "Mijn TeamHub houdt presentie, agenda, corvee, opstelling en spelersontwikkeling jarenlang bij voor jeugdopleidingen die serieus willen presteren.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
