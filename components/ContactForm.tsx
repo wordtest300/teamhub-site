@@ -32,6 +32,9 @@ export default function ContactForm() {
     const data = new FormData(form);
     data.append("access_key", ACCESS_KEY);
     data.append("subject", "Nieuw contact via mijnteamhub.nl");
+    // "name" is een veld dat Web3Forms zelf herkent (o.a. voor de afzendernaam
+    // in de e-mail) -- voor-/achternaam blijven ook los meegestuurd.
+    data.append("name", `${data.get("voornaam")} ${data.get("achternaam")}`.trim());
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -69,17 +72,31 @@ export default function ContactForm() {
         className="hidden"
         aria-hidden="true"
       />
-      <div>
-        <label htmlFor="naam" className="block text-sm text-cream/70 mb-1">
-          Naam
-        </label>
-        <input
-          id="naam"
-          name="naam"
-          type="text"
-          required
-          className="w-full rounded-lg bg-cream/10 border border-cream/20 px-4 py-3 text-cream placeholder:text-cream/40 focus:outline-none focus:border-gold"
-        />
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="voornaam" className="block text-sm text-cream/70 mb-1">
+            Voornaam
+          </label>
+          <input
+            id="voornaam"
+            name="voornaam"
+            type="text"
+            required
+            className="w-full rounded-lg bg-cream/10 border border-cream/20 px-4 py-3 text-cream placeholder:text-cream/40 focus:outline-none focus:border-gold"
+          />
+        </div>
+        <div>
+          <label htmlFor="achternaam" className="block text-sm text-cream/70 mb-1">
+            Achternaam
+          </label>
+          <input
+            id="achternaam"
+            name="achternaam"
+            type="text"
+            required
+            className="w-full rounded-lg bg-cream/10 border border-cream/20 px-4 py-3 text-cream placeholder:text-cream/40 focus:outline-none focus:border-gold"
+          />
+        </div>
       </div>
       <div>
         <label htmlFor="email" className="block text-sm text-cream/70 mb-1">
@@ -90,6 +107,17 @@ export default function ContactForm() {
           name="email"
           type="email"
           required
+          className="w-full rounded-lg bg-cream/10 border border-cream/20 px-4 py-3 text-cream placeholder:text-cream/40 focus:outline-none focus:border-gold"
+        />
+      </div>
+      <div>
+        <label htmlFor="telefoonnummer" className="block text-sm text-cream/70 mb-1">
+          Telefoonnummer
+        </label>
+        <input
+          id="telefoonnummer"
+          name="telefoonnummer"
+          type="tel"
           className="w-full rounded-lg bg-cream/10 border border-cream/20 px-4 py-3 text-cream placeholder:text-cream/40 focus:outline-none focus:border-gold"
         />
       </div>
