@@ -53,7 +53,7 @@ export default function Home() {
       <header className="sticky top-0 z-10 bg-cream/95 backdrop-blur border-b border-ink/10">
         <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
           <span className="font-display font-extrabold text-2xl tracking-tight uppercase">
-            Mijn TeamHub
+            My TeamHub
           </span>
           <nav className="hidden sm:flex items-center gap-8 text-sm font-medium">
             <a href="#functies" className="hover:text-forest">Functies</a>
@@ -85,7 +85,7 @@ export default function Home() {
               ÉÉN systeem voor de hele jeugdopleiding
             </h1>
             <p className="mt-8 text-lg sm:text-xl leading-relaxed max-w-2xl text-cream/85">
-              Mijn TeamHub brengt zowel administratieve zaken als technische
+              My TeamHub brengt zowel administratieve zaken als technische
               zaken samen. Zo ontstaat een dossier per speler dat jaren
               meegaat, en werken trainers, coördinatoren en het hoofd
               jeugdopleiding op dezelfde informatie.
@@ -216,7 +216,7 @@ export default function Home() {
 
       <footer className="bg-ink text-cream/60">
         <div className="mx-auto max-w-6xl px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
-          <span className="font-display font-bold uppercase tracking-wide">Mijn TeamHub</span>
+          <span className="font-display font-bold uppercase tracking-wide">My TeamHub</span>
           <span>info@mijnteamhub.nl</span>
         </div>
       </footer>
