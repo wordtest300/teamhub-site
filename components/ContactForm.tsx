@@ -31,7 +31,7 @@ export default function ContactForm() {
     setStatus("versturen");
     const data = new FormData(form);
     data.append("access_key", ACCESS_KEY);
-    data.append("subject", "Nieuw contact via mijnteamhub.nl");
+    data.append("subject", "Nieuw contact via myteamhub.nl");
     // "name" is een veld dat Web3Forms zelf herkent (o.a. voor de afzendernaam
     // in de e-mail) -- voor-/achternaam blijven ook los meegestuurd.
     data.append("name", `${data.get("voornaam")} ${data.get("achternaam")}`.trim());

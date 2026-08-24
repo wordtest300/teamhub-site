@@ -62,7 +62,7 @@ export default function Home() {
           </nav>
           <div className="flex items-center gap-4 sm:gap-5">
             <a
-              href="https://app.mijnteamhub.nl"
+              href="https://app.myteamhub.nl"
               className="text-sm font-semibold hover:text-forest"
             >
               Inloggen
