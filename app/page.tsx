@@ -1,5 +1,13 @@
 import ContactForm from "@/components/ContactForm";
-import { AgendaPreview, LivePreview, CorveePreview, VervoerPreview } from "@/components/AppPreview";
+import {
+  AgendaPreview,
+  LivePreview,
+  CorveePreview,
+  VervoerPreview,
+  BeoordelingPreview,
+  OpstellingPreview,
+  StatistiekenPreview,
+} from "@/components/AppPreview";
 
 const FUNCTIES_MET_BEELD = [
   {
@@ -7,6 +15,18 @@ const FUNCTIES_MET_BEELD = [
     beschrijving:
       "Eén gekoppelde agenda voor trainingen, wedstrijden, analyses en POP-gesprekken. Spelers melden zich na overleg met de trainer zelf af in de app, zodat het meteen gelogd staat, en te laat komen leggen trainers vast met letterlijk één druk op de knop. POP-gesprekken verschijnen ook automatisch in de agenda van de speler zelf.",
     Beeld: AgendaPreview,
+  },
+  {
+    naam: "Beoordeling",
+    beschrijving:
+      "Elke speler krijgt een eindcijfer opgebouwd uit opkomst, op tijd komen en prestatie (spel, inzet, gedrag), en dat cijfer verandert live, direct na elke training of wedstrijd. Geen jaarlijkse beoordeling achteraf, maar een actueel beeld dat altijd klopt.",
+    Beeld: BeoordelingPreview,
+  },
+  {
+    naam: "Opstelling",
+    beschrijving:
+      "De basisopstelling komt niet uit een gevoel, maar uit een wegingsmodel: wie er deze week écht heeft getraind weegt het zwaarst, de vorm over het seizoen erna. De trainer beslist nog steeds, maar begint niet meer bij een leeg vel.",
+    Beeld: OpstellingPreview,
   },
   {
     naam: "Live wedstrijdverloop",
@@ -26,24 +46,15 @@ const FUNCTIES_MET_BEELD = [
       "Ouders bieden een auto met een aantal plekken aan, andere ouders boeken er direct een plek in. Automatisch geregeld, zonder rondbellen of een aparte WhatsApp-poll, en nooit meer plekken geboekt dan er in de auto passen.",
     Beeld: VervoerPreview,
   },
-];
-
-const FUNCTIES_TEKST = [
-  {
-    naam: "Beoordeling",
-    beschrijving:
-      "Elke speler krijgt een eindcijfer opgebouwd uit opkomst, op tijd komen en prestatie (spel, inzet, gedrag), en dat cijfer verandert live, direct na elke training of wedstrijd. Geen jaarlijkse beoordeling achteraf, maar een actueel beeld dat altijd klopt.",
-  },
-  {
-    naam: "Opstelling",
-    beschrijving:
-      "De basisopstelling komt niet uit een gevoel, maar uit een wegingsmodel: wie er deze week écht heeft getraind weegt het zwaarst, de vorm over het seizoen erna. De trainer beslist nog steeds, maar begint niet meer bij een leeg vel.",
-  },
   {
     naam: "Statistieken",
     beschrijving:
       "Opkomst, op tijd komen, wedstrijdcijfers en persoonlijke statistieken zoals goals, assists en tegendoelpunten, per seizoen bijgehouden. Dat blijft bewaard zolang de speler bij de club speelt, ook bij een overstap naar een ander team.",
+    Beeld: StatistiekenPreview,
   },
+];
+
+const FUNCTIES_TEKST = [
   {
     naam: "Ouder-toegang",
     beschrijving:
@@ -210,7 +221,7 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="grid sm:grid-cols-3 gap-6 mt-20 pt-16 border-t border-cream/15">
+            <div className="grid sm:grid-cols-2 gap-6 mt-20 pt-16 border-t border-cream/15">
               {FUNCTIES_TEKST.map((f) => (
                 <div key={f.naam}>
                   <h3 className="font-display font-bold uppercase text-xl mb-2">{f.naam}</h3>

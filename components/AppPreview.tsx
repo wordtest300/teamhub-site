@@ -105,6 +105,88 @@ export function CorveePreview() {
   );
 }
 
+export function BeoordelingPreview() {
+  const onderdelen = [
+    { label: "Opkomst", waarde: "95%" },
+    { label: "Op tijd", waarde: "100%" },
+    { label: "Spel", waarde: "8" },
+    { label: "Inzet", waarde: "9" },
+    { label: "Gedrag", waarde: "8" },
+  ];
+  return (
+    <Frame title="Beoordeling">
+      <div className="flex items-center justify-between mb-5">
+        <div>
+          <p className="text-sm font-semibold">Noa Willemsen</p>
+          <p className="text-xs text-ink/50 mt-0.5">Laatste update: vandaag</p>
+        </div>
+        <div className="text-right shrink-0">
+          <p className="font-display font-extrabold text-3xl leading-none text-forest">8,2</p>
+          <p className="text-[10px] uppercase text-ink/50 mt-1">Eindcijfer</p>
+        </div>
+      </div>
+      <div className="grid grid-cols-5 gap-2">
+        {onderdelen.map((o) => (
+          <div key={o.label} className="text-center">
+            <p className="font-display font-bold text-sm">{o.waarde}</p>
+            <p className="text-[10px] text-ink/50 mt-0.5 leading-tight">{o.label}</p>
+          </div>
+        ))}
+      </div>
+    </Frame>
+  );
+}
+
+export function OpstellingPreview() {
+  const basis = ["Daan Visscher", "Yusuf Kaya", "Milo Jansen", "Ties Bakker"];
+  const wissel = ["Owen Pieters", "Ruben Scholten"];
+  return (
+    <Frame title="Opstelling">
+      <p className="text-xs text-ink/50 mb-4">4-3-3 · gebaseerd op vorm en opkomst</p>
+      <p className="text-[11px] font-bold uppercase text-ink/50 mb-2">Basis</p>
+      <div className="space-y-2 mb-4">
+        {basis.map((n) => (
+          <div key={n} className="rounded-lg bg-forest text-cream text-sm px-3 py-2">
+            {n}
+          </div>
+        ))}
+      </div>
+      <p className="text-[11px] font-bold uppercase text-ink/50 mb-2">Wissel</p>
+      <div className="space-y-2">
+        {wissel.map((n) => (
+          <div key={n} className="rounded-lg bg-cream-2 text-sm px-3 py-2">
+            {n}
+          </div>
+        ))}
+      </div>
+    </Frame>
+  );
+}
+
+export function StatistiekenPreview() {
+  const stats = [
+    { label: "Goals", waarde: "9" },
+    { label: "Assists", waarde: "5" },
+    { label: "Tegendoelpunten", waarde: "3" },
+    { label: "Wedstrijden", waarde: "14" },
+    { label: "Opkomst", waarde: "95%" },
+    { label: "Op tijd", waarde: "100%" },
+  ];
+  return (
+    <Frame title="Statistieken">
+      <p className="text-xs text-ink/50 mb-4">Noa Willemsen · seizoen 2025/2026</p>
+      <div className="grid grid-cols-3 gap-3">
+        {stats.map((s) => (
+          <div key={s.label} className="rounded-xl bg-cream-2 px-3 py-3 text-center">
+            <p className="font-display font-extrabold text-xl leading-none">{s.waarde}</p>
+            <p className="text-[10px] text-ink/50 mt-1 leading-tight">{s.label}</p>
+          </div>
+        ))}
+      </div>
+    </Frame>
+  );
+}
+
 export function VervoerPreview() {
   const aanbod = [
     { naam: "Karin de Wit", plekken: 3, geboekt: 2 },
