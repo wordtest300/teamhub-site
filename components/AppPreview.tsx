@@ -104,3 +104,35 @@ export function CorveePreview() {
     </Frame>
   );
 }
+
+export function VervoerPreview() {
+  const aanbod = [
+    { naam: "Karin de Wit", plekken: 3, geboekt: 2 },
+    { naam: "Mo Amrani", plekken: 4, geboekt: 4 },
+  ];
+  return (
+    <Frame title="Vervoer">
+      <p className="text-xs text-ink/50 mb-4">Uitwedstrijd · za 26 sep</p>
+      <div className="space-y-3">
+        {aanbod.map((a) => {
+          const vol = a.geboekt >= a.plekken;
+          return (
+            <div key={a.naam} className="flex items-center justify-between rounded-xl bg-cream-2 px-4 py-3">
+              <div>
+                <p className="text-sm font-semibold">{a.naam}</p>
+                <p className="text-xs text-ink/50 mt-0.5">{a.plekken} plekken in de auto</p>
+              </div>
+              <span
+                className={`text-[11px] font-bold uppercase rounded-full px-2.5 py-1 ${
+                  vol ? "bg-ink/10 text-ink/50" : "bg-gold text-ink"
+                }`}
+              >
+                {vol ? "Vol" : `${a.plekken - a.geboekt} vrij`}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    </Frame>
+  );
+}

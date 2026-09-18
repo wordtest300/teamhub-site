@@ -1,5 +1,5 @@
 import ContactForm from "@/components/ContactForm";
-import { AgendaPreview, LivePreview, CorveePreview } from "@/components/AppPreview";
+import { AgendaPreview, LivePreview, CorveePreview, VervoerPreview } from "@/components/AppPreview";
 
 const FUNCTIES_MET_BEELD = [
   {
@@ -20,6 +20,12 @@ const FUNCTIES_MET_BEELD = [
       "Een geautomatiseerd corveerooster in een vaste, logische volgorde. Mist iemand een beurt, dan schuift het systeem die automatisch door, zonder dat een vrijwilliger dat handmatig hoeft bij te houden.",
     Beeld: CorveePreview,
   },
+  {
+    naam: "Vervoer naar uitwedstrijden",
+    beschrijving:
+      "Ouders bieden een auto met een aantal plekken aan, andere ouders boeken er direct een plek in. Automatisch geregeld, zonder rondbellen of een aparte WhatsApp-poll, en nooit meer plekken geboekt dan er in de auto passen.",
+    Beeld: VervoerPreview,
+  },
 ];
 
 const FUNCTIES_TEKST = [
@@ -37,6 +43,16 @@ const FUNCTIES_TEKST = [
     naam: "Statistieken",
     beschrijving:
       "Opkomst, op tijd komen, wedstrijdcijfers en persoonlijke statistieken zoals goals, assists en tegendoelpunten, per seizoen bijgehouden. Dat blijft bewaard zolang de speler bij de club speelt, ook bij een overstap naar een ander team.",
+  },
+  {
+    naam: "Ouder-toegang",
+    beschrijving:
+      "Ouders krijgen een eigen koppellink die een jaar geldig is, zonder account of wachtwoord. Ze zien het rooster, de cijfers en precies de corveeweken van hun eigen kind, nooit die van het hele team of de zelfbeoordelingen van hun kind.",
+  },
+  {
+    naam: "Push-meldingen",
+    beschrijving:
+      "Automatisch bericht bij een nieuwe of gewijzigde agenda-afspraak, een corveebeurt die eraan komt, een nieuwe beoordeling, de gepubliceerde opstelling en elk doelpunt tijdens een live wedstrijd.",
   },
 ];
 
@@ -56,6 +72,10 @@ const DOELGROEPEN = [
   {
     naam: "Spelers",
     beschrijving: "Eigen agenda en eigen cijfers, zodat ze precies zien waar ze aan werken.",
+  },
+  {
+    naam: "Ouders",
+    beschrijving: "Rooster en cijfers van hun eigen kind, via een link zonder account. Niets van de rest van het team.",
   },
 ];
 
@@ -153,7 +173,7 @@ export default function Home() {
             <h2 className="font-display font-extrabold uppercase text-4xl sm:text-5xl leading-[0.95] mb-14 max-w-2xl text-balance">
               Voor iedereen om het team heen
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {DOELGROEPEN.map((d) => (
                 <div key={d.naam} className="bg-cream rounded-2xl border border-ink/10 p-6">
                   <h3 className="font-display font-bold uppercase text-xl mb-2">{d.naam}</h3>
