@@ -1,25 +1,37 @@
 import ContactForm from "@/components/ContactForm";
+import { AgendaPreview, LivePreview, CorveePreview } from "@/components/AppPreview";
 
-const FUNCTIES = [
+const FUNCTIES_MET_BEELD = [
   {
     naam: "Presentie & agenda",
     beschrijving:
       "Eén gekoppelde agenda voor trainingen, wedstrijden, analyses en POP-gesprekken. Spelers melden zich na overleg met de trainer zelf af in de app, zodat het meteen gelogd staat, en te laat komen leggen trainers vast met letterlijk één druk op de knop. POP-gesprekken verschijnen ook automatisch in de agenda van de speler zelf.",
+    Beeld: AgendaPreview,
   },
+  {
+    naam: "Live wedstrijdverloop",
+    beschrijving:
+      "Minuut voor minuut doelpunten, kaarten en wissels vastleggen tijdens de wedstrijd. Spelers en ouders volgen de stand en de tijdlijn live mee, en krijgen een melding bij elk doelpunt.",
+    Beeld: LivePreview,
+  },
+  {
+    naam: "Corvee",
+    beschrijving:
+      "Een geautomatiseerd corveerooster in een vaste, logische volgorde. Mist iemand een beurt, dan schuift het systeem die automatisch door, zonder dat een vrijwilliger dat handmatig hoeft bij te houden.",
+    Beeld: CorveePreview,
+  },
+];
+
+const FUNCTIES_TEKST = [
   {
     naam: "Beoordeling",
     beschrijving:
       "Elke speler krijgt een eindcijfer opgebouwd uit opkomst, op tijd komen en prestatie (spel, inzet, gedrag), en dat cijfer verandert live, direct na elke training of wedstrijd. Geen jaarlijkse beoordeling achteraf, maar een actueel beeld dat altijd klopt.",
   },
   {
-    naam: "Live en wedstrijdopstelling",
+    naam: "Opstelling",
     beschrijving:
-      "De basisopstelling komt niet uit een gevoel, maar uit een wegingsmodel: wie er deze week écht heeft getraind weegt het zwaarst, de vorm over het seizoen erna. De trainer beslist nog steeds, maar begint niet meer bij een leeg vel. Daarnaast is er een aparte live opstelling, puur gebaseerd op prestatie en voetballend niveau.",
-  },
-  {
-    naam: "Corvee",
-    beschrijving:
-      "Een geautomatiseerd corveerooster in een vaste, logische volgorde. Mist iemand een beurt, dan schuift het systeem die automatisch door, zonder dat een vrijwilliger dat handmatig hoeft bij te houden.",
+      "De basisopstelling komt niet uit een gevoel, maar uit een wegingsmodel: wie er deze week écht heeft getraind weegt het zwaarst, de vorm over het seizoen erna. De trainer beslist nog steeds, maar begint niet meer bij een leeg vel.",
   },
   {
     naam: "Statistieken",
@@ -153,21 +165,36 @@ export default function Home() {
         </section>
 
         {/* Functies */}
-        <section id="functies" className="bg-forest text-cream min-h-[calc(100vh-4rem)] flex items-center">
-          <div className="mx-auto max-w-6xl px-6 py-16 w-full">
-            <h2 className="font-display font-extrabold uppercase text-4xl sm:text-5xl leading-[0.95] mb-14 max-w-2xl text-balance">
+        <section id="functies" className="bg-forest text-cream py-24">
+          <div className="mx-auto max-w-6xl px-6">
+            <h2 className="font-display font-extrabold uppercase text-4xl sm:text-5xl leading-[0.95] mb-16 max-w-2xl text-balance">
               Wat het precies doet
             </h2>
-            <div className="grid sm:grid-cols-2 gap-px bg-cream/15 rounded-2xl overflow-hidden">
-              {FUNCTIES.map((f, i) => (
+
+            <div className="space-y-20">
+              {FUNCTIES_MET_BEELD.map((f, i) => (
                 <div
                   key={f.naam}
-                  className={`bg-forest-2 p-8 ${i === FUNCTIES.length - 1 ? "sm:col-span-2" : ""}`}
+                  className={`grid md:grid-cols-2 gap-10 md:gap-16 items-center ${
+                    i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
+                  }`}
                 >
-                  <h3 className="font-display font-bold uppercase text-2xl mb-3">{f.naam}</h3>
-                  <p className={`text-cream/75 leading-relaxed ${i === FUNCTIES.length - 1 ? "max-w-2xl" : ""}`}>
-                    {f.beschrijving}
-                  </p>
+                  <div>
+                    <h3 className="font-display font-bold uppercase text-2xl sm:text-3xl mb-4">{f.naam}</h3>
+                    <p className="text-cream/75 leading-relaxed text-lg max-w-md">{f.beschrijving}</p>
+                  </div>
+                  <div className="flex justify-center">
+                    <f.Beeld />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="grid sm:grid-cols-3 gap-6 mt-20 pt-16 border-t border-cream/15">
+              {FUNCTIES_TEKST.map((f) => (
+                <div key={f.naam}>
+                  <h3 className="font-display font-bold uppercase text-xl mb-2">{f.naam}</h3>
+                  <p className="text-cream/70 leading-relaxed text-sm">{f.beschrijving}</p>
                 </div>
               ))}
             </div>
