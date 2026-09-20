@@ -2,8 +2,53 @@ import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { AgendaPreview, LivePreview, BeoordelingPreview } from "@/components/AppPreview";
 
-const DOELGROEPEN_NAMEN = ["Trainers", "Technisch coördinatoren", "Hoofden jeugdopleiding", "Spelers", "Ouders"];
+const UITGELICHT = [
+  {
+    naam: "Presentie & agenda",
+    beschrijving:
+      "Eén gekoppelde agenda voor trainingen, wedstrijden, analyses en POP-gesprekken. Te laat komen leggen trainers vast met één druk op de knop.",
+    Beeld: AgendaPreview,
+  },
+  {
+    naam: "Live wedstrijdverloop",
+    beschrijving:
+      "Minuut voor minuut doelpunten, kaarten en wissels vastleggen. Spelers en ouders volgen de stand en de tijdlijn live mee.",
+    Beeld: LivePreview,
+  },
+  {
+    naam: "Beoordeling",
+    beschrijving:
+      "Elke speler krijgt een eindcijfer dat live meebeweegt, met sterkste punten en werkpunten t.o.v. het teamgemiddelde.",
+    Beeld: BeoordelingPreview,
+  },
+];
+
+const DOELGROEPEN = [
+  {
+    naam: "Trainers",
+    beschrijving: "Eén overzicht per team in plaats van een appgroep, een presentielijst en een los briefje.",
+  },
+  {
+    naam: "Technisch coördinatoren",
+    beschrijving: "Zicht op alle teams tegelijk, zonder elke trainer apart te hoeven bellen voor een update.",
+  },
+  {
+    naam: "Hoofden jeugdopleiding",
+    beschrijving: "Ontwikkeling van elke speler over meerdere seizoenen, onderbouwd bij doorstroming, selectie of een vraag van een scout.",
+  },
+  {
+    naam: "Spelers",
+    beschrijving: "Eigen agenda en eigen cijfers, zodat ze precies zien waar ze aan werken.",
+  },
+  {
+    naam: "Ouders",
+    beschrijving: "Rooster en cijfers van hun eigen kind, via een link zonder account. Niets van de rest van het team.",
+  },
+];
+
+const OVERIGE_FUNCTIES = ["Opstelling", "Corvee", "Vervoer naar uitwedstrijden", "Statistieken", "Ouder-toegang", "Push-meldingen"];
 
 export default function Home() {
   return (
@@ -41,8 +86,8 @@ export default function Home() {
         </section>
 
         {/* Waarom */}
-        <section className="bg-cream min-h-[calc(100vh-4rem)] flex items-center">
-          <div className="mx-auto max-w-6xl px-6 py-16 grid md:grid-cols-[1fr_1.3fr] gap-12 items-start">
+        <section className="bg-cream py-20">
+          <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-[1fr_1.3fr] gap-12 items-start">
             <h2 className="font-display font-extrabold uppercase text-4xl sm:text-5xl leading-[0.95] text-balance">
               Wat een groeiende opleiding meestal tegenkomt
             </h2>
@@ -68,47 +113,77 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Kort overzicht: teaser naar /functies en /voor-wie */}
-        <section className="bg-cream-2 border-y border-ink/10 py-20">
-          <div className="mx-auto max-w-6xl px-6 grid md:grid-cols-2 gap-12">
-            <div>
-              <h2 className="font-display font-extrabold uppercase text-3xl leading-[0.95] mb-6">Wat het doet</h2>
-              <ul className="space-y-4 text-ink/75 leading-relaxed">
-                <li>
-                  <strong className="text-ink">Presentie & agenda</strong> — training, wedstrijden, analyses en
-                  gesprekken in één agenda.
-                </li>
-                <li>
-                  <strong className="text-ink">Beoordeling & opstelling</strong> — een eindcijfer dat live
-                  meebeweegt, en een opstelling op basis van data in plaats van een gevoel.
-                </li>
-                <li>
-                  <strong className="text-ink">Corvee, vervoer & statistieken</strong> — automatisch geregeld, en
-                  jarenlang bewaard per speler.
-                </li>
-              </ul>
-              <Link href="/functies" className="inline-block mt-6 font-semibold text-forest hover:underline">
-                Bekijk alle functies →
-              </Link>
+        {/* Uitgelichte functies met beeld, zoals Mingle's featureblokken */}
+        <section className="bg-forest text-cream py-24">
+          <div className="mx-auto max-w-6xl px-6">
+            <h2 className="font-display font-extrabold uppercase text-4xl sm:text-5xl leading-[0.95] mb-16 max-w-2xl text-balance">
+              Wat het doet
+            </h2>
+            <div className="space-y-20">
+              {UITGELICHT.map((f, i) => (
+                <div
+                  key={f.naam}
+                  className={`grid md:grid-cols-2 gap-10 md:gap-16 items-center ${
+                    i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
+                  }`}
+                >
+                  <div>
+                    <h3 className="font-display font-bold uppercase text-2xl sm:text-3xl mb-4">{f.naam}</h3>
+                    <p className="text-cream/75 leading-relaxed text-lg max-w-md">{f.beschrijving}</p>
+                  </div>
+                  <div className="flex justify-center">
+                    <f.Beeld />
+                  </div>
+                </div>
+              ))}
             </div>
-            <div>
-              <h2 className="font-display font-extrabold uppercase text-3xl leading-[0.95] mb-6">Voor wie</h2>
-              <div className="flex flex-wrap gap-2">
-                {DOELGROEPEN_NAMEN.map((naam) => (
-                  <span key={naam} className="rounded-full bg-cream border border-ink/10 px-4 py-2 text-sm font-medium">
-                    {naam}
-                  </span>
-                ))}
-              </div>
-              <Link href="/voor-wie" className="inline-block mt-6 font-semibold text-forest hover:underline">
-                Bekijk voor wie →
+            <div className="text-center mt-16">
+              <Link
+                href="/functies"
+                className="inline-block rounded-full border border-cream/30 text-cream font-semibold px-7 py-3.5 hover:bg-cream/10 transition-colors"
+              >
+                Bekijk alle functies →
               </Link>
             </div>
           </div>
         </section>
 
+        {/* Voor wie, zoals Mingle's "Which one are you?" segmentatie */}
+        <section className="bg-cream-2 border-y border-ink/10 py-20">
+          <div className="mx-auto max-w-6xl px-6">
+            <h2 className="font-display font-extrabold uppercase text-4xl sm:text-5xl leading-[0.95] mb-14 max-w-2xl text-balance">
+              Voor iedereen om het team heen
+            </h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {DOELGROEPEN.map((d) => (
+                <div key={d.naam} className="bg-cream rounded-2xl border border-ink/10 p-6">
+                  <h3 className="font-display font-bold uppercase text-xl mb-2">{d.naam}</h3>
+                  <p className="text-ink/75 leading-relaxed">{d.beschrijving}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Kleine featuretegels, zoals Mingle's "Features our users like" */}
+        <section className="bg-cream py-16">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="flex flex-wrap gap-3">
+              {OVERIGE_FUNCTIES.map((naam) => (
+                <Link
+                  key={naam}
+                  href="/functies"
+                  className="rounded-full border border-ink/15 px-5 py-2.5 text-sm font-medium hover:border-forest hover:text-forest transition-colors"
+                >
+                  {naam}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Lange termijn */}
-        <section className="bg-cream min-h-[calc(100vh-4rem)] flex items-center">
+        <section className="bg-cream min-h-[calc(80vh-4rem)] flex items-center">
           <div className="mx-auto max-w-3xl px-6 py-16">
             <h2 className="font-display font-extrabold uppercase text-3xl sm:text-4xl leading-[0.95] mb-6 text-balance">
               Wat een opleiding onderscheidt die verder kijkt dan dit seizoen
