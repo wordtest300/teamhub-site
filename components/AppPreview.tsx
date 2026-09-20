@@ -37,7 +37,7 @@ function Rugnummer({ nr, licht }: { nr: number; licht?: boolean }) {
 export function AgendaPreview() {
   const sessies = [
     { dag: "Di 16 sep", info: "18:30 · Training · Veld 2", notitie: "Passing onder druk", badge: null },
-    { dag: "Vr 18 sep", info: "19:00 · Wedstrijd · Uit", notitie: null, badge: "Wedstrijd" },
+    { dag: "Vr 18 sep", info: "19:00 · Wedstrijd · Sportpark Zuid (uit)", notitie: null, badge: "Wedstrijd" },
     { dag: "Ma 21 sep", info: "20:00 · Training · Veld 1", notitie: "Afwerken 1v1", badge: null },
   ];
   return (
@@ -138,122 +138,152 @@ export function CorveePreview() {
   );
 }
 
+function PaspoortTegel({
+  waarde,
+  label,
+  nadruk,
+  klein,
+}: {
+  waarde: string;
+  label: string;
+  nadruk?: boolean;
+  klein?: boolean;
+}) {
+  return (
+    <div
+      className={`rounded-xl px-2 py-2.5 text-center ${
+        nadruk ? "bg-gold/25 border-2 border-gold-dark" : "bg-cream-2"
+      }`}
+    >
+      <p className={`font-display font-extrabold leading-none ${klein ? "text-lg" : "text-xl"}`}>{waarde}</p>
+      <p className="text-[9px] text-ink/50 mt-1 uppercase tracking-wide leading-tight">{label}</p>
+    </div>
+  );
+}
+
 export function BeoordelingPreview() {
   return (
     <Frame title="Beoordeling">
-      <div className="flex items-center justify-between mb-5">
-        <div className="flex items-center gap-2.5">
-          <Rugnummer nr={7} />
-          <div>
-            <p className="text-sm font-semibold">Noa Willemsen</p>
-            <p className="text-xs text-ink/50 mt-0.5">Laatste update: vandaag</p>
-          </div>
-        </div>
-        <div className="text-right shrink-0">
-          <p className="font-display font-extrabold text-3xl leading-none text-forest">8,2</p>
-          <p className="text-[10px] uppercase text-ink/50 mt-1">Eindcijfer</p>
-        </div>
+      <div className="mb-4">
+        <p className="font-display font-extrabold uppercase text-lg leading-tight">Harris Enyoke</p>
+        <p className="text-xs text-ink/50 mt-0.5">#11 · Linksbuiten · 30-3-2010</p>
       </div>
 
-      <p className="text-[11px] font-bold uppercase text-ink/40 mb-2">Aanwezigheid</p>
-      <div className="grid grid-cols-2 gap-2 mb-4">
-        <div className="rounded-xl bg-cream-2 px-3 py-2.5 text-center">
-          <p className="font-display font-bold text-xl leading-none">95%</p>
-          <p className="text-[11px] text-ink/50 mt-1">Opkomst</p>
-        </div>
-        <div className="rounded-xl bg-cream-2 px-3 py-2.5 text-center">
-          <p className="font-display font-bold text-xl leading-none">100%</p>
-          <p className="text-[11px] text-ink/50 mt-1">Op tijd</p>
-        </div>
+      <div className="grid grid-cols-3 gap-2 mb-2">
+        <PaspoortTegel waarde="96%" label="Opkomst" />
+        <PaspoortTegel waarde="91%" label="Op tijd" />
+        <PaspoortTegel waarde="92%" label="Beoordeling" nadruk />
+      </div>
+      <div className="grid grid-cols-3 gap-2 mb-4">
+        <PaspoortTegel waarde="6" label="Wedstrijden" klein />
+        <PaspoortTegel waarde="3" label="Goals" klein />
+        <PaspoortTegel waarde="2" label="Assists" klein />
       </div>
 
-      <p className="text-[11px] font-bold uppercase text-ink/40 mb-2">Prestatie</p>
-      <div className="grid grid-cols-3 gap-2">
-        {[
-          { label: "Spel", waarde: 8 },
-          { label: "Inzet", waarde: 9 },
-          { label: "Gedrag", waarde: 8 },
-        ].map((o) => (
-          <div key={o.label} className="rounded-xl bg-cream-2 px-3 py-2.5 text-center">
-            <p className="font-display font-bold text-xl leading-none">{o.waarde}</p>
-            <p className="text-[11px] text-ink/50 mt-1">{o.label}</p>
-          </div>
-        ))}
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <p className="text-[11px] font-bold uppercase text-forest mb-1.5">Sterkste punten</p>
+          <p className="text-xs text-ink/70 leading-relaxed">
+            Gedrag <span className="text-ink/40">(5.0 · team 4.5)</span>
+          </p>
+          <p className="text-xs text-ink/70 leading-relaxed">
+            Spel <span className="text-ink/40">(4.2 · team 3.7)</span>
+          </p>
+        </div>
+        <div>
+          <p className="text-[11px] font-bold uppercase text-gold-dark mb-1.5">Werkpunten</p>
+          <p className="text-xs text-ink/70 leading-relaxed">
+            Inzet <span className="text-ink/40">(4.2 · team 4.8)</span>
+          </p>
+          <p className="text-xs text-ink/70 leading-relaxed">
+            Opkomst <span className="text-ink/40">(96% · team 99%)</span>
+          </p>
+        </div>
       </div>
     </Frame>
   );
 }
 
 export function OpstellingPreview() {
-  const basis = [
-    { nr: 1, naam: "Ties Bakker" },
-    { nr: 4, naam: "Yusuf Kaya" },
-    { nr: 7, naam: "Daan Visscher" },
-    { nr: 9, naam: "Milo Jansen" },
-  ];
-  const wissel = [
-    { nr: 11, naam: "Owen Pieters" },
-    { nr: 5, naam: "Ruben Scholten" },
+  const linies = [
+    [
+      { nr: 11, naam: "Finn K.", cijfer: "9.2" },
+      { nr: 9, naam: "Saif A.", cijfer: "9.3" },
+      { nr: 7, naam: "Ilias B.", cijfer: "9.1" },
+    ],
+    [
+      { nr: 8, naam: "Daan L.", cijfer: "9.6" },
+      { nr: 6, naam: "Jesse E.", cijfer: "9.5" },
+      { nr: 10, naam: "Noah J.", cijfer: "9.6" },
+    ],
+    [
+      { nr: 5, naam: "Younes O.", cijfer: "9.7" },
+      { nr: 4, naam: "Georgeo T.", cijfer: "9.2" },
+      { nr: 2, naam: "Goya K.", cijfer: "9.6" },
+    ],
+    [{ nr: 1, naam: "Milan R.", cijfer: "9.4" }],
   ];
   return (
     <Frame title="Opstelling">
-      <p className="text-xs text-ink/50 mb-4">4-3-3 · gebaseerd op vorm en opkomst</p>
-      <p className="text-[11px] font-bold uppercase text-ink/40 mb-2">Basis</p>
-      <div className="space-y-2 mb-4">
-        {basis.map((s) => (
-          <div key={s.naam} className="flex items-center gap-3 rounded-lg bg-forest text-cream text-sm px-3 py-2.5">
-            <Rugnummer nr={s.nr} licht />
-            <span className="font-medium">{s.naam}</span>
+      <div className="flex items-center justify-between mb-3">
+        <p className="text-xs font-semibold">4-3-3</p>
+        <p className="text-[11px] text-ink/50">Op basis van opkomst en vorm</p>
+      </div>
+      <div className="rounded-2xl bg-sage/30 p-2.5 space-y-2">
+        {linies.map((linie, i) => (
+          <div key={i} className="flex justify-center gap-2">
+            {linie.map((s) => (
+              <div key={s.nr} className="flex-1 max-w-[100px] rounded-lg bg-cream border border-forest/25 px-1.5 py-1.5 text-center">
+                <p className="text-[10px] font-bold text-ink/35 leading-none">{s.nr}</p>
+                <p className="text-[11px] font-semibold leading-tight truncate mt-0.5">{s.naam}</p>
+                <p className="text-xs font-display font-extrabold text-forest leading-none mt-0.5">{s.cijfer}</p>
+              </div>
+            ))}
           </div>
         ))}
       </div>
-      <p className="text-[11px] font-bold uppercase text-ink/40 mb-2">Wissel</p>
-      <div className="space-y-2">
-        {wissel.map((s) => (
-          <div key={s.naam} className="flex items-center gap-3 rounded-lg bg-cream-2 text-sm px-3 py-2.5">
-            <Rugnummer nr={s.nr} />
-            <span className="font-medium text-ink/80">{s.naam}</span>
-          </div>
-        ))}
+      <p className="text-[11px] font-bold uppercase text-ink/40 mt-4 mb-2">Bank</p>
+      <div className="rounded-xl bg-cream-2 px-3 py-2.5">
+        <p className="text-sm flex items-baseline gap-1.5">
+          <span className="font-bold text-ink/40">8</span>
+          <span className="font-medium">Rayan D.</span>
+          <span className="font-display font-bold text-forest ml-auto">9.4</span>
+        </p>
+        <p className="text-[11px] text-ink/50 mt-1.5 leading-relaxed">
+          Milan R. had bij gelijke opkomst een hogere beoordeling.
+        </p>
       </div>
     </Frame>
   );
 }
 
 export function StatistiekenPreview() {
+  const seizoenen = [
+    { seizoen: "2025/2026", team: "JO17-1", goals: 9, assists: 5, wedstrijden: 14 },
+    { seizoen: "2024/2025", team: "JO15-1", goals: 6, assists: 3, wedstrijden: 18 },
+    { seizoen: "2023/2024", team: "JO14-2", goals: 4, assists: 2, wedstrijden: 16 },
+  ];
   return (
     <Frame title="Statistieken">
       <div className="flex items-center gap-2.5 mb-4">
         <Rugnummer nr={7} />
-        <p className="text-sm font-semibold">
-          Noa Willemsen <span className="font-normal text-ink/50">· seizoen 2025/2026</span>
-        </p>
+        <p className="text-sm font-semibold">Noa Willemsen</p>
       </div>
-
-      <div className="grid grid-cols-3 gap-2 mb-3">
-        {[
-          { label: "Goals", waarde: "9" },
-          { label: "Assists", waarde: "5" },
-          { label: "Wedstrijden", waarde: "14" },
-        ].map((s) => (
-          <div key={s.label} className="rounded-xl bg-forest text-cream px-3 py-3 text-center">
-            <p className="font-display font-extrabold text-2xl leading-none">{s.waarde}</p>
-            <p className="text-[11px] text-cream/70 mt-1">{s.label}</p>
+      <div className="space-y-2">
+        {seizoenen.map((s) => (
+          <div key={s.seizoen} className="rounded-xl bg-cream-2 px-4 py-2.5">
+            <p className="text-sm font-semibold">
+              {s.seizoen} <span className="font-normal text-ink/50">· {s.team}</span>
+            </p>
+            <p className="text-xs text-ink/60 mt-0.5">
+              {s.goals} goals · {s.assists} assists · {s.wedstrijden} wedstrijden
+            </p>
           </div>
         ))}
       </div>
-      <div className="grid grid-cols-3 gap-2">
-        {[
-          { label: "Tegendoelp.", waarde: "3" },
-          { label: "Opkomst", waarde: "95%" },
-          { label: "Op tijd", waarde: "100%" },
-        ].map((s) => (
-          <div key={s.label} className="rounded-xl bg-cream-2 px-3 py-2 text-center">
-            <p className="font-display font-bold text-base leading-none">{s.waarde}</p>
-            <p className="text-[10px] text-ink/50 mt-1 leading-tight">{s.label}</p>
-          </div>
-        ))}
-      </div>
+      <p className="text-[11px] text-ink/40 mt-3 leading-relaxed">
+        Blijft bewaard bij een overstap naar een ander team binnen de club.
+      </p>
     </Frame>
   );
 }
