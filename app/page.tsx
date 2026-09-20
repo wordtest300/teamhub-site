@@ -3,6 +3,7 @@ import ContactForm from "@/components/ContactForm";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { AgendaPreview, LivePreview, BeoordelingPreview } from "@/components/AppPreview";
+import DemoReel from "@/components/DemoReel";
 
 const UITGELICHT = [
   {
@@ -82,6 +83,17 @@ export default function Home() {
                 Bekijk wat het doet
               </Link>
             </div>
+          </div>
+        </section>
+
+        {/* Demo */}
+        <section className="bg-ink py-20">
+          <div className="mx-auto max-w-6xl px-6 text-center">
+            <h2 className="font-display font-extrabold uppercase text-3xl sm:text-4xl leading-[0.95] text-cream mb-2">
+              Zo ziet het eruit
+            </h2>
+            <p className="text-cream/50 mb-10">Een paar schermen uit de app, automatisch doorlopend</p>
+            <DemoReel />
           </div>
         </section>
 
