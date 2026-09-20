@@ -222,6 +222,7 @@ export function OpstellingPreview() {
     [
       { nr: 5, naam: "Job W.", cijfer: "9.4" },
       { nr: 4, naam: "Teun P.", cijfer: "8.8" },
+      { nr: 3, naam: "Finn R.", cijfer: "8.9" },
       { nr: 2, naam: "Niels F.", cijfer: "9.1" },
     ],
     [{ nr: 1, naam: "Sven M.", cijfer: "8.9" }],
@@ -248,7 +249,7 @@ export function OpstellingPreview() {
       <p className="text-[11px] font-bold uppercase text-ink/40 mt-4 mb-2">Bank</p>
       <div className="rounded-xl bg-cream-2 px-3 py-2.5">
         <p className="text-sm flex items-baseline gap-1.5">
-          <span className="font-bold text-ink/40">3</span>
+          <span className="font-bold text-ink/40">14</span>
           <span className="font-medium">Wout S.</span>
           <span className="font-display font-bold text-forest ml-auto">8.5</span>
         </p>
