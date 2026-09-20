@@ -36,17 +36,25 @@ function Rugnummer({ nr, licht }: { nr: number; licht?: boolean }) {
 
 export function AgendaPreview() {
   const dagen = [
-    { d: "MA", nr: 14 },
+    { d: "MA", nr: 14, stip: "analyse" as const },
     { d: "DI", nr: 15, stip: "training" as const },
     { d: "WO", nr: 16 },
     { d: "DO", nr: 17, stip: "training" as const },
-    { d: "VR", nr: 18, vandaag: true },
+    { d: "VR", nr: 18, stip: "gesprek" as const, vandaag: true },
     { d: "ZA", nr: 19, stip: "wedstrijd" as const },
     { d: "ZO", nr: 20 },
   ];
+  const stipKleur: Record<string, string> = {
+    training: "bg-forest/50",
+    wedstrijd: "bg-gold-dark",
+    analyse: "bg-sage",
+    gesprek: "bg-ink/40",
+  };
   const sessies = [
+    { dag: "Ma 14 sep", info: "19:00 · Analyse · Analysekamer", notitie: "Terugblik vorige wedstrijd", badge: null },
     { dag: "Di 15 sep", info: "18:30 · Training · Veld 2", notitie: "Passing onder druk", badge: null },
     { dag: "Do 17 sep", info: "18:30 · Training · Veld 1", notitie: "Afwerken 1v1", badge: null },
+    { dag: "Vr 18 sep", info: "16:00 · 1-op-1 gesprek · Bestuurskamer", notitie: null, badge: null },
     { dag: "Za 19 sep", info: "10:15 · Wedstrijd · Sportpark Zuid (uit)", notitie: null, badge: "Wedstrijd" },
   ];
   return (
@@ -62,13 +70,7 @@ export function AgendaPreview() {
             <p className="text-xs font-display font-bold leading-tight mt-0.5">{dag.nr}</p>
             <span
               className={`mx-auto mt-1 block w-1.5 h-1.5 rounded-full ${
-                dag.stip === "wedstrijd"
-                  ? "bg-gold-dark"
-                  : dag.stip === "training"
-                  ? dag.vandaag
-                    ? "bg-cream/60"
-                    : "bg-forest/50"
-                  : "bg-transparent"
+                !dag.stip ? "bg-transparent" : dag.vandaag ? "bg-cream/60" : stipKleur[dag.stip]
               }`}
             />
           </div>
