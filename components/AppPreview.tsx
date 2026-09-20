@@ -164,39 +164,42 @@ function PaspoortTegel({
 export function BeoordelingPreview() {
   return (
     <Frame title="Beoordeling">
-      <div className="mb-4">
-        <p className="font-display font-extrabold uppercase text-lg leading-tight">Harris Enyoke</p>
-        <p className="text-xs text-ink/50 mt-0.5">#11 · Linksbuiten · 30-3-2010</p>
+      <div className="mb-4 flex items-center gap-2.5">
+        <Rugnummer nr={7} />
+        <div>
+          <p className="font-display font-extrabold uppercase text-lg leading-tight">Noa Willemsen</p>
+          <p className="text-xs text-ink/50 mt-0.5">Aanvallende middenvelder</p>
+        </div>
       </div>
 
       <div className="grid grid-cols-3 gap-2 mb-2">
-        <PaspoortTegel waarde="96%" label="Opkomst" />
-        <PaspoortTegel waarde="91%" label="Op tijd" />
-        <PaspoortTegel waarde="92%" label="Beoordeling" nadruk />
+        <PaspoortTegel waarde="94%" label="Opkomst" />
+        <PaspoortTegel waarde="97%" label="Op tijd" />
+        <PaspoortTegel waarde="88%" label="Beoordeling" nadruk />
       </div>
       <div className="grid grid-cols-3 gap-2 mb-4">
-        <PaspoortTegel waarde="6" label="Wedstrijden" klein />
-        <PaspoortTegel waarde="3" label="Goals" klein />
-        <PaspoortTegel waarde="2" label="Assists" klein />
+        <PaspoortTegel waarde="12" label="Wedstrijden" klein />
+        <PaspoortTegel waarde="6" label="Goals" klein />
+        <PaspoortTegel waarde="4" label="Assists" klein />
       </div>
 
       <div className="grid grid-cols-2 gap-4">
         <div>
           <p className="text-[11px] font-bold uppercase text-forest mb-1.5">Sterkste punten</p>
           <p className="text-xs text-ink/70 leading-relaxed">
-            Gedrag <span className="text-ink/40">(5.0 · team 4.5)</span>
+            Inzet <span className="text-ink/40">(4.6 · team 4.0)</span>
           </p>
           <p className="text-xs text-ink/70 leading-relaxed">
-            Spel <span className="text-ink/40">(4.2 · team 3.7)</span>
+            Gedrag <span className="text-ink/40">(4.4 · team 4.1)</span>
           </p>
         </div>
         <div>
           <p className="text-[11px] font-bold uppercase text-gold-dark mb-1.5">Werkpunten</p>
           <p className="text-xs text-ink/70 leading-relaxed">
-            Inzet <span className="text-ink/40">(4.2 · team 4.8)</span>
+            Spel <span className="text-ink/40">(3.8 · team 4.0)</span>
           </p>
           <p className="text-xs text-ink/70 leading-relaxed">
-            Opkomst <span className="text-ink/40">(96% · team 99%)</span>
+            Opkomst <span className="text-ink/40">(94% · team 96%)</span>
           </p>
         </div>
       </div>
@@ -207,21 +210,21 @@ export function BeoordelingPreview() {
 export function OpstellingPreview() {
   const linies = [
     [
-      { nr: 11, naam: "Finn K.", cijfer: "9.2" },
-      { nr: 9, naam: "Saif A.", cijfer: "9.3" },
-      { nr: 7, naam: "Ilias B.", cijfer: "9.1" },
+      { nr: 11, naam: "Tijn P.", cijfer: "8.8" },
+      { nr: 9, naam: "Cas B.", cijfer: "9.0" },
+      { nr: 7, naam: "Owen R.", cijfer: "8.6" },
     ],
     [
-      { nr: 8, naam: "Daan L.", cijfer: "9.6" },
-      { nr: 6, naam: "Jesse E.", cijfer: "9.5" },
-      { nr: 10, naam: "Noah J.", cijfer: "9.6" },
+      { nr: 8, naam: "Luuk D.", cijfer: "9.3" },
+      { nr: 6, naam: "Mees H.", cijfer: "8.9" },
+      { nr: 10, naam: "Stijn K.", cijfer: "8.7" },
     ],
     [
-      { nr: 5, naam: "Younes O.", cijfer: "9.7" },
-      { nr: 4, naam: "Georgeo T.", cijfer: "9.2" },
-      { nr: 2, naam: "Goya K.", cijfer: "9.6" },
+      { nr: 5, naam: "Job W.", cijfer: "9.4" },
+      { nr: 4, naam: "Teun P.", cijfer: "8.8" },
+      { nr: 2, naam: "Niels F.", cijfer: "9.1" },
     ],
-    [{ nr: 1, naam: "Milan R.", cijfer: "9.4" }],
+    [{ nr: 1, naam: "Sven M.", cijfer: "8.9" }],
   ];
   return (
     <Frame title="Opstelling">
@@ -245,12 +248,12 @@ export function OpstellingPreview() {
       <p className="text-[11px] font-bold uppercase text-ink/40 mt-4 mb-2">Bank</p>
       <div className="rounded-xl bg-cream-2 px-3 py-2.5">
         <p className="text-sm flex items-baseline gap-1.5">
-          <span className="font-bold text-ink/40">8</span>
-          <span className="font-medium">Rayan D.</span>
-          <span className="font-display font-bold text-forest ml-auto">9.4</span>
+          <span className="font-bold text-ink/40">3</span>
+          <span className="font-medium">Wout S.</span>
+          <span className="font-display font-bold text-forest ml-auto">8.5</span>
         </p>
         <p className="text-[11px] text-ink/50 mt-1.5 leading-relaxed">
-          Milan R. had bij gelijke opkomst een hogere beoordeling.
+          Sven M. had bij gelijke opkomst een hogere beoordeling.
         </p>
       </div>
     </Frame>
