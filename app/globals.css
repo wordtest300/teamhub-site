@@ -44,3 +44,23 @@ body {
     transform: translateY(0);
   }
 }
+
+@keyframes heroscan {
+  from {
+    top: 0%;
+  }
+  to {
+    top: 100%;
+  }
+}
+
+@keyframes herohud-fadein {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

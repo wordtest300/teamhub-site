@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { AgendaPreview, LivePreview, BeoordelingPreview } from "@/components/AppPreview";
 import DemoReel from "@/components/DemoReel";
+import HeroHud from "@/components/HeroHud";
 
 const UITGELICHT = [
   {
@@ -68,6 +69,7 @@ export default function Home() {
             playsInline
           />
           <div className="absolute inset-0 bg-forest/75" />
+          <HeroHud />
           <div className="relative mx-auto max-w-5xl px-6 py-16 text-center flex flex-col items-center">
             <h1 className="font-display font-extrabold uppercase whitespace-nowrap text-[clamp(17px,5.3vw,52px)] leading-[0.95]">
               ÉÉN systeem voor de hele jeugdopleiding
