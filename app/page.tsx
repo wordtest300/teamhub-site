@@ -58,8 +58,17 @@ export default function Home() {
 
       <main>
         {/* Hero */}
-        <section className="bg-forest text-cream min-h-[calc(100vh-4rem)] flex items-center">
-          <div className="mx-auto max-w-5xl px-6 py-16 text-center flex flex-col items-center">
+        <section className="relative overflow-hidden bg-forest text-cream min-h-[calc(100vh-4rem)] flex items-center">
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            src="/hero-video.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+          <div className="absolute inset-0 bg-forest/75" />
+          <div className="relative mx-auto max-w-5xl px-6 py-16 text-center flex flex-col items-center">
             <h1 className="font-display font-extrabold uppercase whitespace-nowrap text-[clamp(17px,5.3vw,52px)] leading-[0.95]">
               ÉÉN systeem voor de hele jeugdopleiding
             </h1>
