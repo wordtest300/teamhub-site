@@ -35,13 +35,45 @@ function Rugnummer({ nr, licht }: { nr: number; licht?: boolean }) {
 }
 
 export function AgendaPreview() {
+  const dagen = [
+    { d: "MA", nr: 14 },
+    { d: "DI", nr: 15, stip: "training" as const },
+    { d: "WO", nr: 16 },
+    { d: "DO", nr: 17, stip: "training" as const },
+    { d: "VR", nr: 18, vandaag: true },
+    { d: "ZA", nr: 19, stip: "wedstrijd" as const },
+    { d: "ZO", nr: 20 },
+  ];
   const sessies = [
-    { dag: "Di 16 sep", info: "18:30 · Training · Veld 2", notitie: "Passing onder druk", badge: null },
-    { dag: "Vr 18 sep", info: "19:00 · Wedstrijd · Sportpark Zuid (uit)", notitie: null, badge: "Wedstrijd" },
-    { dag: "Ma 21 sep", info: "20:00 · Training · Veld 1", notitie: "Afwerken 1v1", badge: null },
+    { dag: "Di 15 sep", info: "18:30 · Training · Veld 2", notitie: "Passing onder druk", badge: null },
+    { dag: "Do 17 sep", info: "18:30 · Training · Veld 1", notitie: "Afwerken 1v1", badge: null },
+    { dag: "Za 19 sep", info: "10:15 · Wedstrijd · Sportpark Zuid (uit)", notitie: null, badge: "Wedstrijd" },
   ];
   return (
     <Frame title="Agenda">
+      <p className="text-xs text-ink/50 mb-3">14 – 20 sep 2026</p>
+      <div className="grid grid-cols-7 gap-1 mb-5">
+        {dagen.map((dag) => (
+          <div
+            key={dag.d}
+            className={`text-center rounded-lg py-1.5 ${dag.vandaag ? "bg-forest text-cream" : ""}`}
+          >
+            <p className={`text-[9px] font-semibold ${dag.vandaag ? "text-cream/70" : "text-ink/40"}`}>{dag.d}</p>
+            <p className="text-xs font-display font-bold leading-tight mt-0.5">{dag.nr}</p>
+            <span
+              className={`mx-auto mt-1 block w-1.5 h-1.5 rounded-full ${
+                dag.stip === "wedstrijd"
+                  ? "bg-gold-dark"
+                  : dag.stip === "training"
+                  ? dag.vandaag
+                    ? "bg-cream/60"
+                    : "bg-forest/50"
+                  : "bg-transparent"
+              }`}
+            />
+          </div>
+        ))}
+      </div>
       <div className="space-y-4">
         {sessies.map((s) => (
           <div key={s.dag} className="flex items-start justify-between gap-3 pb-4 border-b border-ink/10 last:border-0 last:pb-0">
