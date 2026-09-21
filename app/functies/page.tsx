@@ -66,7 +66,7 @@ const FUNCTIES_TEKST = [
   {
     naam: "Ouder-toegang",
     beschrijving:
-      "Ouders krijgen een eigen koppellink die een jaar geldig is, zonder account of wachtwoord. Ze zien het rooster, de cijfers en precies de corveeweken van hun eigen kind, nooit die van het hele team of de zelfbeoordelingen van hun kind.",
+      "Ouders krijgen een eigen scherm. Ze zien het rooster, de corveeweken en de cijfers van hun eigen kind, en krijgen automatisch een melding zodra er iets nieuws gepland staat, zodat ze altijd op tijd op de hoogte zijn.",
   },
   {
     naam: "Push-meldingen",
