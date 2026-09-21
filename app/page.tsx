@@ -29,7 +29,8 @@ const UITGELICHT = [
 const DOELGROEPEN = [
   {
     naam: "Trainers",
-    beschrijving: "Eén overzicht per team in plaats van een appgroep, een presentielijst en een los briefje.",
+    beschrijving:
+      "Eén overzicht van alle administratie van het team, met een actueel cijfer per speler dat alles scherp houdt en het handwerk tot een minimum beperkt. Ook de cijfergeschiedenis van spelers over de afgelopen jaren is direct inzichtelijk.",
   },
   {
     naam: "Technisch coördinatoren",
