@@ -1,3 +1,5 @@
+import Logo from "./Logo";
+
 function Frame({
   title,
   children,
@@ -380,9 +382,7 @@ export function PushMeldingPreview() {
 
         <div className="rounded-2xl bg-cream/95 px-4 py-3 shadow-lg">
           <div className="flex items-center gap-2 mb-1.5">
-            <span className="w-5 h-5 rounded-md bg-forest text-cream text-[10px] font-display font-extrabold flex items-center justify-center">
-              M
-            </span>
+            <Logo className="w-5 h-5 rounded-md shrink-0" />
             <p className="text-[11px] font-semibold uppercase text-ink/50 tracking-wide">My TeamHub</p>
             <p className="text-[11px] text-ink/40 ml-auto">nu</p>
           </div>
