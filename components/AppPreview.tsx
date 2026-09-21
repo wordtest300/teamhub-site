@@ -327,6 +327,12 @@ export function StatistiekenPreview() {
 }
 
 export function OuderToegangPreview() {
+  const tabs = [
+    { naam: "Rooster", actief: true },
+    { naam: "Cijfers", actief: false },
+    { naam: "Wedstrijden", actief: false },
+    { naam: "Corvee", actief: false },
+  ];
   return (
     <Frame title="Ouder">
       <div className="rounded-xl bg-gold/20 border border-gold-dark/40 px-3.5 py-2.5 flex items-start gap-2.5 mb-4">
@@ -344,21 +350,49 @@ export function OuderToegangPreview() {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-2">
-        <div className="rounded-xl bg-cream-2 px-2 py-2.5 text-center">
-          <p className="font-display font-bold text-sm leading-tight">Di 18:30</p>
-          <p className="text-[10px] text-ink/50 mt-1">Training</p>
-        </div>
-        <div className="rounded-xl bg-cream-2 px-2 py-2.5 text-center">
-          <p className="font-display font-bold text-sm leading-tight">Week 42</p>
-          <p className="text-[10px] text-ink/50 mt-1">Corvee</p>
-        </div>
-        <div className="rounded-xl bg-cream-2 px-2 py-2.5 text-center">
-          <p className="font-display font-bold text-xl leading-none">8,4</p>
-          <p className="text-[10px] text-ink/50 mt-1">Cijfer</p>
-        </div>
+      <div className="rounded-xl bg-cream-2 px-4 py-3 mb-4">
+        <p className="text-[11px] font-bold uppercase text-ink/40 mb-1">Eerstvolgende</p>
+        <p className="text-sm font-semibold">Di 15 sep · 18:30 Training · Veld 2</p>
+      </div>
+
+      <div className="grid grid-cols-4 gap-1.5">
+        {tabs.map((t) => (
+          <div
+            key={t.naam}
+            className={`rounded-lg py-2 text-center text-[10px] font-bold uppercase tracking-tight ${
+              t.actief ? "bg-forest text-cream" : "bg-cream-2 text-ink/50"
+            }`}
+          >
+            {t.naam}
+          </div>
+        ))}
       </div>
     </Frame>
+  );
+}
+
+export function PushMeldingPreview() {
+  return (
+    <div className="w-full max-w-sm rounded-[2.5rem] bg-ink p-3 shadow-2xl shadow-black/40 border border-black/20">
+      <div className="rounded-[2rem] bg-gradient-to-b from-forest-2 to-ink px-5 pt-10 pb-14">
+        <p className="text-center text-cream/60 text-xs mb-1">Vrijdag 18 september</p>
+        <p className="text-center text-cream font-display font-extrabold text-5xl mb-10">16:42</p>
+
+        <div className="rounded-2xl bg-cream/95 px-4 py-3 shadow-lg">
+          <div className="flex items-center gap-2 mb-1.5">
+            <span className="w-5 h-5 rounded-md bg-forest text-cream text-[10px] font-display font-extrabold flex items-center justify-center">
+              M
+            </span>
+            <p className="text-[11px] font-semibold uppercase text-ink/50 tracking-wide">My TeamHub</p>
+            <p className="text-[11px] text-ink/40 ml-auto">nu</p>
+          </div>
+          <p className="text-sm font-bold text-ink">Agenda aangepast</p>
+          <p className="text-sm text-ink/70 mt-0.5 leading-snug">
+            Training van di 15 sep is verzet naar 19:00.
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 

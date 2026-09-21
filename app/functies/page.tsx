@@ -10,6 +10,7 @@ import {
   OpstellingPreview,
   StatistiekenPreview,
   OuderToegangPreview,
+  PushMeldingPreview,
 } from "@/components/AppPreview";
 
 export const metadata: Metadata = {
@@ -67,13 +68,11 @@ const FUNCTIES_MET_BEELD = [
       "Ouders krijgen een eigen scherm. Ze zien het rooster, de corveeweken en de cijfers van hun eigen kind, en krijgen automatisch een melding zodra er iets nieuws gepland staat, zodat ze altijd op tijd op de hoogte zijn.",
     Beeld: OuderToegangPreview,
   },
-];
-
-const FUNCTIES_TEKST = [
   {
     naam: "Push-meldingen",
     beschrijving:
       "Automatisch bericht bij een nieuwe of gewijzigde agenda-afspraak, een corveebeurt die eraan komt, een nieuwe beoordeling, de gepubliceerde opstelling en elk doelpunt tijdens een live wedstrijd.",
+    Beeld: PushMeldingPreview,
   },
 ];
 
@@ -103,15 +102,6 @@ export default function FunctiesPagina() {
                   <div className="flex justify-center">
                     <f.Beeld />
                   </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="max-w-md mt-20 pt-16 border-t border-cream/15">
-              {FUNCTIES_TEKST.map((f) => (
-                <div key={f.naam}>
-                  <h2 className="font-display font-bold uppercase text-xl mb-2">{f.naam}</h2>
-                  <p className="text-cream/70 leading-relaxed text-sm">{f.beschrijving}</p>
                 </div>
               ))}
             </div>
