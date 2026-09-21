@@ -21,7 +21,7 @@ const FUNCTIES_MET_BEELD = [
   {
     naam: "Presentie & agenda",
     beschrijving:
-      "Eén gekoppelde agenda voor trainingen, wedstrijden, analyses en POP-gesprekken. Spelers melden zich na overleg met de trainer zelf af in de app, zodat het meteen gelogd staat, en te laat komen leggen trainers vast met letterlijk één druk op de knop. POP-gesprekken verschijnen ook automatisch in de agenda van de speler zelf.",
+      "Eén gekoppelde agenda voor trainingen, wedstrijden, analyses en gesprekken. Spelers melden zich na overleg met de trainer zelf af in de app, zodat het meteen gelogd staat, en te laat komen leggen trainers vast met letterlijk één druk op de knop. Gesprekken verschijnen ook automatisch in de agenda van de speler zelf.",
     Beeld: AgendaPreview,
   },
   {

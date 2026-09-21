@@ -9,7 +9,7 @@ const UITGELICHT = [
   {
     naam: "Presentie & agenda",
     beschrijving:
-      "Eén gekoppelde agenda voor trainingen, wedstrijden, analyses en POP-gesprekken. Te laat komen leggen trainers vast met één druk op de knop.",
+      "Eén gekoppelde agenda voor trainingen, wedstrijden, analyses en gesprekken. Te laat komen leggen trainers vast met één druk op de knop.",
     Beeld: AgendaPreview,
   },
   {
