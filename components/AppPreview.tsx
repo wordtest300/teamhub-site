@@ -326,6 +326,42 @@ export function StatistiekenPreview() {
   );
 }
 
+export function OuderToegangPreview() {
+  return (
+    <Frame title="Ouder">
+      <div className="rounded-xl bg-gold/20 border border-gold-dark/40 px-3.5 py-2.5 flex items-start gap-2.5 mb-4">
+        <span className="text-base leading-none mt-0.5">🔔</span>
+        <p className="text-xs text-ink/80 leading-relaxed">
+          <span className="font-semibold">Nieuwe afspraak</span> · vr 25 sep, 18:30 Training
+        </p>
+      </div>
+
+      <div className="flex items-center gap-2.5 mb-4">
+        <Rugnummer nr={3} />
+        <div>
+          <p className="text-sm font-semibold">Bram Hendriks</p>
+          <p className="text-xs text-ink/50 mt-0.5">Jouw kind</p>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-3 gap-2">
+        <div className="rounded-xl bg-cream-2 px-2 py-2.5 text-center">
+          <p className="font-display font-bold text-sm leading-tight">Di 18:30</p>
+          <p className="text-[10px] text-ink/50 mt-1">Training</p>
+        </div>
+        <div className="rounded-xl bg-cream-2 px-2 py-2.5 text-center">
+          <p className="font-display font-bold text-sm leading-tight">Week 42</p>
+          <p className="text-[10px] text-ink/50 mt-1">Corvee</p>
+        </div>
+        <div className="rounded-xl bg-cream-2 px-2 py-2.5 text-center">
+          <p className="font-display font-bold text-xl leading-none">8,4</p>
+          <p className="text-[10px] text-ink/50 mt-1">Cijfer</p>
+        </div>
+      </div>
+    </Frame>
+  );
+}
+
 export function VervoerPreview() {
   const aanbod = [
     { naam: "Karin de Wit", kind: "moeder van Bram (3)", plekken: 3, geboekt: 2 },

@@ -9,6 +9,7 @@ import {
   BeoordelingPreview,
   OpstellingPreview,
   StatistiekenPreview,
+  OuderToegangPreview,
 } from "@/components/AppPreview";
 
 export const metadata: Metadata = {
@@ -60,14 +61,15 @@ const FUNCTIES_MET_BEELD = [
       "Opkomst, op tijd komen, wedstrijdcijfers en persoonlijke statistieken zoals goals, assists en tegendoelpunten, per seizoen bijgehouden. Dat blijft bewaard zolang de speler bij de club speelt, ook bij een overstap naar een ander team.",
     Beeld: StatistiekenPreview,
   },
-];
-
-const FUNCTIES_TEKST = [
   {
     naam: "Ouder-toegang",
     beschrijving:
       "Ouders krijgen een eigen scherm. Ze zien het rooster, de corveeweken en de cijfers van hun eigen kind, en krijgen automatisch een melding zodra er iets nieuws gepland staat, zodat ze altijd op tijd op de hoogte zijn.",
+    Beeld: OuderToegangPreview,
   },
+];
+
+const FUNCTIES_TEKST = [
   {
     naam: "Push-meldingen",
     beschrijving:
@@ -105,7 +107,7 @@ export default function FunctiesPagina() {
               ))}
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-6 mt-20 pt-16 border-t border-cream/15">
+            <div className="max-w-md mt-20 pt-16 border-t border-cream/15">
               {FUNCTIES_TEKST.map((f) => (
                 <div key={f.naam}>
                   <h2 className="font-display font-bold uppercase text-xl mb-2">{f.naam}</h2>
